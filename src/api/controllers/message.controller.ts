@@ -47,6 +47,8 @@ export class MessageController {
       res.setHeader('Cache-Control', 'no-cache');
       res.setHeader('Connection', 'keep-alive');
       res.setHeader('X-Accel-Buffering', 'no');
+
+      // Adding test line
       
       // Handle client disconnect
       const cleanup = () => {
