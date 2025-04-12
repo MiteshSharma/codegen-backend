@@ -47,12 +47,16 @@ export class MessageController {
       res.setHeader('Cache-Control', 'no-cache');
       res.setHeader('Connection', 'keep-alive');
       res.setHeader('X-Accel-Buffering', 'no');
-      
-      //Add a forloop to send a message to the user
+
+      // Let's write a code to do some processing with a bug in the code, code should be of 10 lines
       for (let i = 0; i < 10; i++) {
-        res.write(`data: ${JSON.stringify({ message: `Hello, this is a test message ${i}` })}\n\n`
-        res.flush(); // Force sending data
+        await this.messageService.saveUserMessage(messageRequest, ''+i);
       }
+      
+      for (let i = 0; i < 10; i++) {
+        await this.messageService.saveUserMessage(messageRequest, ''+i
+      }
+
       
       // Handle client disconnect
       const cleanup = () => {
