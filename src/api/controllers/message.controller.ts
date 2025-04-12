@@ -47,6 +47,16 @@ export class MessageController {
       res.setHeader('Cache-Control', 'no-cache');
       res.setHeader('Connection', 'keep-alive');
       res.setHeader('X-Accel-Buffering', 'no');
+
+      // Let's write a code to do some processing with a bug in the code, code should be of 10 lines
+      for (let i = 0; i < 10; i++) {
+        await this.messageService.saveUserMessage(messageRequest, ''+i);
+      }
+      
+      for (let i = 0; i < 10; i++) {
+        await this.messageService.saveUserMessage(messageRequest, ''+i
+      }
+
       
       // Handle client disconnect
       const cleanup = () => {
