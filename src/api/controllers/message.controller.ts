@@ -47,8 +47,12 @@ export class MessageController {
       res.setHeader('Cache-Control', 'no-cache');
       res.setHeader('Connection', 'keep-alive');
       res.setHeader('X-Accel-Buffering', 'no');
-
-      // Adding test line
+      
+      //Add a forloop to send a message to the user
+      for (let i = 0; i < 10; i++) {
+        res.write(`data: ${JSON.stringify({ message: `Hello, this is a test message ${i}` })}\n\n`);
+        res.flush(); // Force sending data
+      }
       
       // Handle client disconnect
       const cleanup = () => {
